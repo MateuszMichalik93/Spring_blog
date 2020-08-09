@@ -15,14 +15,24 @@ import java.time.LocalDateTime;
 @Data
 @Entity      //  tworzy encje i mapuje ja na tabele
 public class User {
+
     @Id         //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)     //auto-inkrementacja
     private long userId;
     private String name;
-    private String lastname;
+    private String lastName;
     private String email;
     private String password;
-    private LocalDateTime registrationDateTame;
+    private LocalDateTime registrationDateTime;
     private boolean status;
+
+    public User(String name, String lastName, String email, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.registrationDateTime = LocalDateTime.now();
+        this.status = true;
+    }
 
 }
