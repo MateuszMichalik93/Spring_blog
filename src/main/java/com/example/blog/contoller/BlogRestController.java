@@ -63,5 +63,6 @@ public class BlogRestController {
     public boolean updateUserPassword(@RequestParam("userId") long userId,
                                       @RequestParam("newPassword") String newPassword){
         return blogService.updatePassword(userId, newPassword);
+
     }
 }

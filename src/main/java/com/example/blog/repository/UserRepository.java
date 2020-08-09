@@ -7,4 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     //JpaRepository<Entity, Primary key Type>
+
+    //select * from user where user.email = ? LIMIT 1
+    User findFirstByEmail(String email);
+
 }
