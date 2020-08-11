@@ -1,5 +1,7 @@
 package com.example.blog.contoller;
 
+import com.example.blog.model.Category;
+import com.example.blog.model.Post;
 import com.example.blog.model.User;
 import com.example.blog.service.BlogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +66,19 @@ public class BlogRestController {
                                       @RequestParam("newPassword") String newPassword){
         return blogService.updatePassword(userId, newPassword);
 
+    }
+
+    @PostMapping("/addPost")
+    public Post addPostByUser( @RequestParam("title") String title,
+                               @RequestParam("content") String content,
+                               @RequestParam("category") Category category,
+                               @RequestParam("userId") long userId
+    ){
+    return blogService.addPostByUser(userId, title, content, category);
+
+    }
+    @GetMapping(value = "/posts")
+    public List<Post> getAllPosts(){
+        return blogService.getAllPost();
     }
 }
