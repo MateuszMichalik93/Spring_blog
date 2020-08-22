@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@RequestMapping("/rest")
 @RestController  //kontroler generujacy wyniki w postaci REST API
 @Controller     //kontroler komunikujacy sie z warstwa front-end
 public class BlogRestController {
